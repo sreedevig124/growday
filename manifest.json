@@ -1,0 +1,10 @@
+{
+  "name": "GrowDay - Self Growth",
+  "short_name": "GrowDay",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#08110f",
+  "theme_color": "#c7f36a",
+  "description": "Personal self-growth tracker",
+  "orientation": "portrait"
+}

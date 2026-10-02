@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10141a">
+  <title>GrowDay — Self Growth</title>
+  <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">✦</div>
+        <div>
+          <strong>GrowDay</strong>
+          <small>BUILD YOURSELF, ONE DAY AT A TIME</small>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="themeBtn" class="icon-btn" title="Toggle theme">☼</button>
+        <button id="resetBtn" class="ghost-btn">Reset today</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow" id="dateLabel"></p>
+          <h1>Good evening, <span>Grower.</span></h1>
+          <p class="subtitle">Four small actions. One stronger version of you.</p>
+        </div>
+        <div class="streak">
+          <span>🔥</span>
+          <div><b id="streakValue">0</b><small>day streak</small></div>
+        </div>
+      </section>
+
+      <section class="summary">
+        <div>
+          <p class="eyebrow">TODAY'S GROWTH</p>
+          <div class="big-number" id="percent">0%</div>
+          <p id="completedText">0 of 4 areas completed</p>
+          <div class="progress"><div id="progressBar"></div></div>
+        </div>
+        <div class="ring" id="ring"><span id="ringText">0%</span></div>
+        <div class="quote">“Small progress is still progress.”<small>— GrowDay</small></div>
+      </section>
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR FOUR PILLARS</p>
+          <h2>Today's Growth</h2>
+        </div>
+        <span id="counter">0 / 4</span>
+      </div>
+
+      <section class="grid">
+        <article class="card" data-key="skill">
+          <div class="card-head"><div class="pill skill">🧠 Skill</div><span class="check" id="check-skill">○</span></div>
+          <h3>Build a skill from scratch</h3>
+          <p>Choose one skill and move forward every day.</p>
+          <label>Today's skill</label>
+          <input id="skillName" placeholder="e.g. Python, UI/UX, coding">
+          <label>What did you learn?</label>
+          <textarea id="skillNote" placeholder="Write one thing you learned today..."></textarea>
+          <div class="level-row"><span>Skill progress</span><b id="skillLevelText">Day 0 / 30</b></div>
+          <input type="range" id="skillLevel" min="0" max="30" value="0">
+          <button class="complete-btn" data-complete="skill">Mark skill complete</button>
+        </article>
+
+        <article class="card" data-key="language">
+          <div class="card-head"><div class="pill language">🌎 Language</div><span class="check" id="check-language">○</span></div>
+          <h3>Practice a language</h3>
+          <p>Keep your language course moving every day.</p>
+          <label>Language</label>
+          <input id="languageName" placeholder="e.g. Spanish">
+          <label>Today's lesson / words</label>
+          <input id="languageLesson" placeholder="e.g. 10 new words + one lesson">
+          <label>New words learned</label>
+          <input id="wordCount" type="number" min="0" placeholder="0">
+          <button class="complete-btn" data-complete="language">Mark language complete</button>
+        </article>
+
+        <article class="card" data-key="reading">
+          <div class="card-head"><div class="pill reading">📖 Reading</div><span class="check" id="check-reading">○</span></div>
+          <h3>Read something</h3>
+          <p>Build the habit of reading and thinking.</p>
+          <label>What did you read?</label>
+          <input id="readingTitle" placeholder="Book, article, paper...">
+          <label>Minutes / pages</label>
+          <input id="readingAmount" type="number" min="0" placeholder="e.g. 20">
+          <label>One takeaway</label>
+          <textarea id="readingNote" placeholder="What stayed in your mind?"></textarea>
+          <button class="complete-btn" data-complete="reading">Mark reading complete</button>
+        </article>
+
+        <article class="card" data-key="world">
+          <div class="card-head"><div class="pill world">🌍 World</div><span class="check" id="check-world">○</span></div>
+          <h3>Learn about the world</h3>
+          <p>Discover one new idea, event, place or fact.</p>
+          <label>Topic</label>
+          <input id="worldTopic" placeholder="e.g. Space, history, science">
+          <label>What did you discover?</label>
+          <textarea id="worldNote" placeholder="Write the new thing you learned..."></textarea>
+          <button class="complete-btn" data-complete="world">Mark world learning complete</button>
+        </article>
+      </section>
+
+      <section class="dashboard">
+        <div class="panel">
+          <div class="section-heading small">
+            <div><p class="eyebrow">THIS WEEK</p><h2>Consistency</h2></div>
+          </div>
+          <div class="week" id="week"></div>
+        </div>
+        <div class="panel">
+          <div class="section-heading small">
+            <div><p class="eyebrow">TODAY</p><h2>Reflection</h2></div>
+          </div>
+          <textarea id="reflection" class="reflection" placeholder="What are you proud of today? What will you improve tomorrow?"></textarea>
+          <button id="saveReflection" class="primary-btn">Save reflection</button>
+        </div>
+      </section>
+
+      <section class="history panel">
+        <div class="section-heading small">
+          <div><p class="eyebrow">PROGRESS</p><h2>Your journey</h2></div>
+          <span id="totalDays">0 active days</span>
+        </div>
+        <div class="stats">
+          <div><b id="avgGrowth">0%</b><span>7-day average</span></div>
+          <div><b id="bestStreak">0</b><span>best streak</span></div>
+          <div><b id="totalCompletions">0</b><span>pillar completions</span></div>
+        </div>
+      </section>
+    </main>
+    <footer>GrowDay v3 · Your progress is stored in this browser.</footer>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
